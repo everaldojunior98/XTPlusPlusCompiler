@@ -101,7 +101,19 @@ public class LexicalFile
         }
     }
 
-    private void IncreaseIndex()
+    private int GetBufferCharCode()
+    {
+        var code = buffer[index];
+        IncreaseIndex();
+
+        return code;
+    }
+
+    // endregion
+
+    // region Public Methods
+
+    public void IncreaseIndex()
     {
         index++;
 
@@ -116,25 +128,13 @@ public class LexicalFile
         }
     }
 
-    private void DecreaseIndex()
+    public void DecreaseIndex()
     {
         index--;
 
         if(index < 0)
             index = bufferSize * 2 - 1;
     }
-
-    private int GetBufferCharCode()
-    {
-        var code = buffer[index];
-        IncreaseIndex();
-
-        return code;
-    }
-
-    // endregion
-
-    // region Public Methods
 
     public int GetCharCode()
     {

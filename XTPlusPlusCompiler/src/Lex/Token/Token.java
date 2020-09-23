@@ -24,7 +24,7 @@ public class Token
     @Override
     public String toString()
     {
-        return "<" + Type + "," + Value + ">";
+        return "<" + Type + ",\"" + Value + "\">";
     }
     
     //endregion

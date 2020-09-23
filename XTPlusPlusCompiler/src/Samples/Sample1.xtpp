@@ -1,15 +1,15 @@
-#DECLARACAO
+﻿#DECLARACAO
     val#INTEIRO
     res#INTEIRO
 #ALGORITMO
     $comentario(s)
     LER val
     ARMAZENAR val EM res
-    SE val = 0 ENTAO
+    SE val >= 0 ENTAO
         ARMAZENAR 1 EM res
         ENQUANTO val > 1
         INIB
-        ARMAZENAR res * (val – 1) EM res
-        ARMAZENAR (val – 1) EM val
+        ARMAZENAR res * (val - 1) EM res
+        ARMAZENAR (val - 1) EM val
         FIMB
     FIM
