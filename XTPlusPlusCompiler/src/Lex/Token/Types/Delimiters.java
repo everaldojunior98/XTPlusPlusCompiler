@@ -4,6 +4,6 @@ import Lex.Token.ITokenType;
 
 public enum Delimiters implements ITokenType
 {
-    HASH,  //#
-    COLON  //:
+    CERQUILHA, //#
+    DOIS_PONTOS //:
 }

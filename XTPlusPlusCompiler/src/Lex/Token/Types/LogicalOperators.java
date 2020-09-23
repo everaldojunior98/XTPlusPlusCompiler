@@ -4,6 +4,6 @@ import Lex.Token.ITokenType;
 
 public enum LogicalOperators implements ITokenType
 {
-    AND, //E
-    OR   //OU
+    E, //E
+    OU   //OU
 }

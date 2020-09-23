@@ -43,31 +43,38 @@ public class LexicalAnalyzer
             {
                 continue;
             }
+            //Comment
+            else if(currentChar == '$')
+            {
+                while(nextChar != Character.LINE_SEPARATOR)
+                    nextChar = (char)lexicalFile.GetCharCode();
+                continue;
+            }
             //Delimiter
             else if(currentChar == '#')
             {
-                return new Token(Delimiters.HASH, Character.toString(currentChar));
+                return new Token(Delimiters.CERQUILHA, Character.toString(currentChar));
             }
             else if(currentChar == ':')
             {
-                return new Token(Delimiters.COLON, Character.toString(currentChar));
+                return new Token(Delimiters.DOIS_PONTOS, Character.toString(currentChar));
             }
             //Arithmetic Operators
             else if(currentChar == '+')
             {
-                return new Token(ArithmeticOperators.ADDITION, Character.toString(currentChar));
+                return new Token(ArithmeticOperators.ADICAO, Character.toString(currentChar));
             }
             else if(currentChar == '-' || currentChar == '–')
             {
-                return new Token(ArithmeticOperators.SUBTRACTION, Character.toString(currentChar));
+                return new Token(ArithmeticOperators.SUBTRACAO, Character.toString(currentChar));
             }
             else if(currentChar == '*')
             {
-                return new Token(ArithmeticOperators.MULTIPLICATION, Character.toString(currentChar));
+                return new Token(ArithmeticOperators.MULTIPLICACAO, Character.toString(currentChar));
             }
             else if(currentChar == '/')
             {
-                return new Token(ArithmeticOperators.DIVISION, Character.toString(currentChar));
+                return new Token(ArithmeticOperators.DIVISAO, Character.toString(currentChar));
             }
             else if(Character.isLetter(currentChar) || Character.isDigit(currentChar) || currentChar == ',')
             {
@@ -143,12 +150,12 @@ public class LexicalAnalyzer
                 else if(currentLexeme.equals("E"))
                 {
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
-                        return new Token(LogicalOperators.AND, currentLexeme);
+                        return new Token(LogicalOperators.E, currentLexeme);
                 }
                 else if(currentLexeme.equals("OU"))
                 {
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
-                        return new Token(LogicalOperators.OR, currentLexeme);
+                        return new Token(LogicalOperators.OU, currentLexeme);
                 }
                 else if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar) && nextChar != ',')
                 {
@@ -157,47 +164,47 @@ public class LexicalAnalyzer
                     for(var i = 0; i < currentLexeme.length(); i++)
                     {
                         if(Character.isLetter(lexemeArray[i]))
-                            return new Token(Variables.VARIABLE, currentLexeme);
+                            return new Token(Variables.VARIAVEL, currentLexeme);
                         else if(lexemeArray[i] == ',')
-                        return new Token(Variables.NUMBER_FLOAT, currentLexeme);
+                        return new Token(Variables.NUMERO_REAL, currentLexeme);
                     }
 
-                    return new Token(Variables.NUMBER_INTEGER, currentLexeme);
+                    return new Token(Variables.NUMERO_INTEIRO, currentLexeme);
                 }
             }
             //Misc
             else if(currentChar == '(')
             {
-                return new Token(Misc.OPEN_PARENTHESIS, Character.toString(currentChar));
+                return new Token(Misc.ABRIR_PARENTESES, Character.toString(currentChar));
             }
             else if(currentChar == ')')
             {
-                return new Token(Misc.CLOSE_PARENTHESIS, Character.toString(currentChar));
+                return new Token(Misc.FECHAR_PARENTESES, Character.toString(currentChar));
             }
             //Relational Operators
             else if(currentChar == '=')
             {
-                return new Token(RelationalOperators.EQUAL, Character.toString(currentChar));
+                return new Token(RelationalOperators.IGUAL, Character.toString(currentChar));
             }
             else if(currentChar == '<')
             {
                 if(nextChar == '>')
-                    return new Token(RelationalOperators.UNEQUAL, "<>");
+                    return new Token(RelationalOperators.DIFERENTE, "<>");
                 else if(nextChar == '=')
-                    return new Token(RelationalOperators.LESS_EQUAL, "<=");
+                    return new Token(RelationalOperators.MENOR_IGUAL, "<=");
                 else
-                    return new Token(RelationalOperators.LESS, Character.toString(currentChar));
+                    return new Token(RelationalOperators.MENOR, Character.toString(currentChar));
             }
             else if(currentChar == '>')
             {
                 if(nextChar == '=')
-                    return new Token(RelationalOperators.GREATER_EQUAL, ">=");
+                    return new Token(RelationalOperators.MAIOR_IGUAL, ">=");
                 else
-                    return new Token(RelationalOperators.GREATER, Character.toString(currentChar));
+                    return new Token(RelationalOperators.MAIOR, Character.toString(currentChar));
             }
             else if(currentChar == '=')
             {
-                return new Token(RelationalOperators.EQUAL, Character.toString(currentChar));
+                return new Token(RelationalOperators.IGUAL, Character.toString(currentChar));
             }
             else
             {

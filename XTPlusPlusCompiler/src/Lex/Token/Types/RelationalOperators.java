@@ -4,10 +4,10 @@ import Lex.Token.ITokenType;
 
 public enum RelationalOperators implements ITokenType
 {
-    EQUAL,        //IGUAL
-    UNEQUAL,      //DIFERENTE
-    GREATER,      //MAIOR
-    LESS,         //MENOR
-    GREATER_EQUAL, //MAIORIGUAL	
-    LESS_EQUAL     //MENORIGUAL
+    IGUAL,       //IGUAL
+    DIFERENTE,   //DIFERENTE
+    MAIOR,       //MAIOR
+    MENOR,       //MENOR
+    MAIOR_IGUAL, //MAIORIGUAL	
+    MENOR_IGUAL  //MENORIGUAL
 }

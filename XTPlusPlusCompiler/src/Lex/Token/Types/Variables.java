@@ -4,8 +4,8 @@ import Lex.Token.ITokenType;
 
 public enum Variables implements ITokenType
 {
-    VARIABLE,       //VARIAVEL
-    NUMBER_INTEGER, //NUMERO INTEIRO
-    NUMBER_FLOAT,   //NUMERO REAL
-    STRING          //TEXTO
+    VARIAVEL,       //VARIAVEL
+    NUMERO_INTEIRO, //NUMERO INTEIRO
+    NUMERO_REAL,    //NUMERO REAL
+    TEXTO           //TEXTO
 }
