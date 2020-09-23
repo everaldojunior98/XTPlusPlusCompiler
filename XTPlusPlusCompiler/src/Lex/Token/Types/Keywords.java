@@ -4,17 +4,17 @@ import Lex.Token.ITokenType;
 
 public enum Keywords implements ITokenType
 {
-    DEC, //DECLARACAO
-    ALG, //ALGORITMO
-    IB,  //INICIOB
-    FB,  //FINALB
-    LER, //LER
-    ESC, //ESCREVER
-    SE,  //SE
-    ENT, //ENTÃO
-    ENQ, //ENQUANTO
-    ARM, //ARMAZENAR
-    INT, //INTEIRO
-    EM,  //EM
-    FIM  //FIM
+    DECLARACAO, //DECLARACAO
+    ALGORITMO,  //ALGORITMO
+    INICIOB,    //INICIOB
+    FINALB,     //FINALB
+    LER,        //LER
+    ESCREVER,   //ESCREVER
+    SE,         //SE
+    ENTAO,      //ENTÃO
+    ENQUANTO,   //ENQUANTO
+    ARMAZENAR,  //ARMAZENAR
+    INTEIRO,    //INTEIRO
+    EM,         //EM
+    FIM         //FIM
 }

@@ -15,9 +15,6 @@ public class LexicalFile
 
     private int bufferCode;
 
-    private int lexemePosition;
-    private String lexeme;
-
     // endregion
 
     // region Constructor
@@ -49,8 +46,6 @@ public class LexicalFile
         index = 0;
 
         bufferCode = 2;
-        lexemePosition = 0;
-        lexeme = "";
 
         GenerateFirstBuffer();
     }

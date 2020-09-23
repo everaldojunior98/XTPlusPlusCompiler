@@ -10,6 +10,6 @@
         ENQUANTO val > 1
         INIB
         ARMAZENAR res * (val - 1) EM res
-        ARMAZENAR (val - 1) EM val
+        ARMAZENAR (val - 1,1) EM val
         FIMB
     FIM

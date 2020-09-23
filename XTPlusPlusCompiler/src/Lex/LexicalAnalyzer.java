@@ -69,90 +69,100 @@ public class LexicalAnalyzer
             {
                 return new Token(ArithmeticOperators.DIVISION, Character.toString(currentChar));
             }
-            else if(Character.isLetter(currentChar))
+            else if(Character.isLetter(currentChar) || Character.isDigit(currentChar) || currentChar == ',')
             {
                 currentLexeme += currentChar;
 
                 //Keywords
                 if(currentLexeme.equals("DECLARACAO"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.DEC, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.DECLARACAO, currentLexeme);
                 }
                 else if(currentLexeme.equals("ALGORITMO"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.ALG, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.ALGORITMO, currentLexeme);
                 }
-                else if(currentLexeme.equals("INICIOB"))
+                else if(currentLexeme.equals("INIB"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.IB, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.INICIOB, currentLexeme);
                 }
-                else if(currentLexeme.equals("FINALB"))
+                else if(currentLexeme.equals("FIMB"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.FB, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.FINALB, currentLexeme);
                 }
                 else if(currentLexeme.equals("LER"))
                 {
-                    if(!Character.isLetter(nextChar))
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(Keywords.LER, currentLexeme);
                 }
                 else if(currentLexeme.equals("ESCREVER"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.ESC, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.ESCREVER, currentLexeme);
                 }
                 else if(currentLexeme.equals("SE"))
                 {
-                    if(!Character.isLetter(nextChar))
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(Keywords.SE, currentLexeme);
                 }
                 else if(currentLexeme.equals("ENTAO"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.ENT, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.ENTAO, currentLexeme);
                 }
                 else if(currentLexeme.equals("ENQUANTO"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.ENQ, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.ENQUANTO, currentLexeme);
                 }
                 else if(currentLexeme.equals("ARMAZENAR"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.ARM, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.ARMAZENAR, currentLexeme);
                 }
                 else if(currentLexeme.equals("INTEIRO"))
                 {
-                    if(!Character.isLetter(nextChar))
-                        return new Token(Keywords.INT, currentLexeme);
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(Keywords.INTEIRO, currentLexeme);
                 }
                 else if(currentLexeme.equals("EM"))
                 {
-                    if(!Character.isLetter(nextChar))
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(Keywords.EM, currentLexeme);
                 }
                 else if(currentLexeme.equals("FIM"))
                 {
-                    if(!Character.isLetter(nextChar))
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(Keywords.FIM, currentLexeme);
                 }
                 //Logical Operators
                 else if(currentLexeme.equals("E"))
                 {
-                    if(!Character.isLetter(nextChar))
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(LogicalOperators.AND, currentLexeme);
                 }
                 else if(currentLexeme.equals("OU"))
                 {
-                    if(!Character.isLetter(nextChar))
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(LogicalOperators.OR, currentLexeme);
                 }
-                else if(!Character.isLetter(nextChar))
+                else if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar) && nextChar != ',')
                 {
-                    return new Token(Variables.VARIABLE, currentLexeme);
+                    var lexemeArray = currentLexeme.toCharArray();
+
+                    for(var i = 0; i < currentLexeme.length(); i++)
+                    {
+                        if(Character.isLetter(lexemeArray[i]))
+                            return new Token(Variables.VARIABLE, currentLexeme);
+                        else if(lexemeArray[i] == ',')
+                        return new Token(Variables.NUMBER_FLOAT, currentLexeme);
+                    }
+
+                    return new Token(Variables.NUMBER_INTEGER, currentLexeme);
                 }
             }
             //Misc
