@@ -166,7 +166,7 @@ public class LexicalAnalyzer
                         if(Character.isLetter(lexemeArray[i]))
                             return new Token(Variables.VARIAVEL, currentLexeme);
                         else if(lexemeArray[i] == ',')
-                        return new Token(Variables.NUMERO_REAL, currentLexeme);
+                            return new Token(Variables.NUMERO_REAL, currentLexeme);
                     }
 
                     return new Token(Variables.NUMERO_INTEIRO, currentLexeme);
@@ -189,16 +189,25 @@ public class LexicalAnalyzer
             else if(currentChar == '<')
             {
                 if(nextChar == '>')
+                {
+                    lexicalFile.IncreaseIndex();
                     return new Token(RelationalOperators.DIFERENTE, "<>");
+                }
                 else if(nextChar == '=')
+                {
+                    lexicalFile.IncreaseIndex();
                     return new Token(RelationalOperators.MENOR_IGUAL, "<=");
+                }
                 else
                     return new Token(RelationalOperators.MENOR, Character.toString(currentChar));
             }
             else if(currentChar == '>')
             {
                 if(nextChar == '=')
+                {
+                    lexicalFile.IncreaseIndex();
                     return new Token(RelationalOperators.MAIOR_IGUAL, ">=");
+                }
                 else
                     return new Token(RelationalOperators.MAIOR, Character.toString(currentChar));
             }
