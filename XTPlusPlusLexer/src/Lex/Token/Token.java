@@ -4,14 +4,14 @@ public class Token
 {
     // region Fields
 
-    public ITokenType Type;
+    public TokenTypes Type;
     public String Value;
 
     // endregion
 
     // region Constructor
 
-    public Token(ITokenType type, String value)
+    public Token(TokenTypes type, String value)
     {
         Type = type;
         Value = value;
