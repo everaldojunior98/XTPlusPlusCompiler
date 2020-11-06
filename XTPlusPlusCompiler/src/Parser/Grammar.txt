@@ -1,0 +1,18 @@
+P: '#' 'DECLARACAO' LD '#' 'ALGORITMO' LC;
+LD: D LD | D;
+D: V '#' TDADO;
+TDADO: 'INTEIRO' | 'DECIMAL';
+EA: EA '+' TAE | EA '-' TAE | TAE;
+TAE: TAE '*' TAI | TAE '/' TAI | TAI;
+TAI: NI | ND | V | '(' EA ')';
+ER: ER OL TR | TR;
+TR: EA OR EA | '(' ER ')';
+OL: 'E' | 'OU';
+LC: C LC | C;
+C: CA | CL | CE | CSE | CR | BLOCO;
+CA: 'ARMAZENAR' EA 'EM' V;
+CL: 'LER' V;
+CE: 'ESCREVER' (V | CADEIAC);
+CSE 'SE' ER 'ENTAO' C | 'SE' ER 'ENTAO' C 'SENAO' C;
+CR: 'ENQUANTO' ER C;
+BLOCO: 'INIB' LC 'FIMB';

@@ -1,6 +1,6 @@
-package Lex;
+package Lexer;
 
-import Lex.Token.*;
+import Lexer.Token.*;
 
 public class LexicalAnalyzer
 {
@@ -46,28 +46,28 @@ public class LexicalAnalyzer
             //Delimiter
             else if(currentChar == '#')
             {
-                return new Token(TokenTypes.D, Character.toString(currentChar));
+                return new Token(TokenTypes.DL, Character.toString(currentChar));
             }
             else if(currentChar == ':')
             {
-                return new Token(TokenTypes.D, Character.toString(currentChar));
+                return new Token(TokenTypes.DL, Character.toString(currentChar));
             }
             //Arithmetic Operators
             else if(currentChar == '+')
             {
-                return new Token(TokenTypes.OA, Character.toString(currentChar));
+                return new Token(TokenTypes.OASo, Character.toString(currentChar));
             }
             else if(currentChar == '-' || currentChar == '–')
             {
-                return new Token(TokenTypes.OA, Character.toString(currentChar));
+                return new Token(TokenTypes.OASub, Character.toString(currentChar));
             }
             else if(currentChar == '*')
             {
-                return new Token(TokenTypes.OA, Character.toString(currentChar));
+                return new Token(TokenTypes.OAMult, Character.toString(currentChar));
             }
             else if(currentChar == '/')
             {
-                return new Token(TokenTypes.OA, Character.toString(currentChar));
+                return new Token(TokenTypes.OADiv, Character.toString(currentChar));
             }
             else if(Character.isLetter(currentChar) || Character.isDigit(currentChar) || currentChar == ',')
             {
@@ -128,6 +128,11 @@ public class LexicalAnalyzer
                 {
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(TokenTypes.INT, currentLexeme);
+                }
+                else if(currentLexeme.equals("DECIMAL"))
+                {
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(TokenTypes.DECI, currentLexeme);
                 }
                 else if(currentLexeme.equals("EM"))
                 {

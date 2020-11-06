@@ -1,4 +1,4 @@
-package Lex.Token;
+package Lexer.Token;
 
 public enum TokenTypes
 {
@@ -13,16 +13,20 @@ public enum TokenTypes
     ENQ,
     ARM,
     INT,
+    DECI,
     EM,
     FIM,
-    OA,
     OR,
     OB,
     Ap,
     Fp,
-    D,
+    DL,
     V,
     Ni,
     Nd,
-    C
+    C, 
+    OASo,
+    OASub,
+    OAMult,
+    OADiv
 }

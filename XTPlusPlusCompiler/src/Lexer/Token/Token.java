@@ -1,4 +1,4 @@
-package Lex.Token;
+package Lexer.Token;
 
 public class Token
 {

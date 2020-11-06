@@ -1,4 +1,4 @@
-package Lex;
+package Lexer;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -26,9 +26,6 @@ public class LexicalFile
             stream = new FileInputStream(path);
             
             InitializeBuffer();
-
-            // if (stream != null)
-            // stream.close();
         }
         catch (Exception e)
         {
