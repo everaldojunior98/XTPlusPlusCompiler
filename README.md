@@ -1,6 +1,7 @@
-# XT++ Lexer
-Projeto de um analisador léxico na disciplina de compiladores da Faculdade UCL.
+# XT++ Compiler
+Projeto de um compilador desenvolvido na disciplina de compiladores da Faculdade UCL.
 
+## Parte 1: Analisador léxico
 ### Exemplo:
 #### Input:
 ```
