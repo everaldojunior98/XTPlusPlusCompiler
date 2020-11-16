@@ -109,6 +109,11 @@ public class LexicalAnalyzer
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
                         return new Token(TokenTypes.SE, currentLexeme);
                 }
+                else if(currentLexeme.equals("SENAO"))
+                {
+                    if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
+                        return new Token(TokenTypes.SENAO, currentLexeme);
+                }
                 else if(currentLexeme.equals("ENTAO"))
                 {
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
@@ -148,12 +153,12 @@ public class LexicalAnalyzer
                 else if(currentLexeme.equals("E"))
                 {
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
-                        return new Token(TokenTypes.OB, currentLexeme);
+                        return new Token(TokenTypes.OR_E, currentLexeme);
                 }
                 else if(currentLexeme.equals("OU"))
                 {
                     if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar))
-                        return new Token(TokenTypes.OB, currentLexeme);
+                        return new Token(TokenTypes.OR_OU, currentLexeme);
                 }
                 else if(!Character.isLetter(nextChar) && !Character.isDigit(nextChar) && nextChar != ',')
                 {
@@ -182,36 +187,36 @@ public class LexicalAnalyzer
             //Relational Operators
             else if(currentChar == '=')
             {
-                return new Token(TokenTypes.OR, Character.toString(currentChar));
+                return new Token(TokenTypes.OR_IGUAL, Character.toString(currentChar));
             }
             else if(currentChar == '<')
             {
                 if(nextChar == '>')
                 {
                     lexicalFile.IncreaseIndex();
-                    return new Token(TokenTypes.OR, "<>");
+                    return new Token(TokenTypes.OR_DIFERENTE, "<>");
                 }
                 else if(nextChar == '=')
                 {
                     lexicalFile.IncreaseIndex();
-                    return new Token(TokenTypes.OR, "<=");
+                    return new Token(TokenTypes.OR_MENOR_IGUAL, "<=");
                 }
                 else
-                    return new Token(TokenTypes.OR, Character.toString(currentChar));
+                    return new Token(TokenTypes.OR_MENOR, Character.toString(currentChar));
             }
             else if(currentChar == '>')
             {
                 if(nextChar == '=')
                 {
                     lexicalFile.IncreaseIndex();
-                    return new Token(TokenTypes.OR, ">=");
+                    return new Token(TokenTypes.OR_MAIOR_IGUAL, ">=");
                 }
                 else
-                    return new Token(TokenTypes.OR, Character.toString(currentChar));
+                    return new Token(TokenTypes.OR_MAIOR, Character.toString(currentChar));
             }
             else if(currentChar == '=')
             {
-                return new Token(TokenTypes.OR, Character.toString(currentChar));
+                return new Token(TokenTypes.OR_IGUAL, Character.toString(currentChar));
             }
             else
             {

@@ -12,4 +12,3 @@
         ARMAZENAR res * (val - 1) EM res
         ARMAZENAR (val - 1,1) EM val
         FIMB
-    FIM

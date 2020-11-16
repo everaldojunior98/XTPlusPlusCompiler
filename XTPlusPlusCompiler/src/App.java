@@ -1,5 +1,4 @@
 import Lexer.LexicalAnalyzer;
-import Lexer.Token.*;
 import Parser.SyntacticAnalyzer;
 
 public class App
@@ -11,6 +10,7 @@ public class App
         var path = "src/Samples/Sample1.xtpp";
         var analyzer = new LexicalAnalyzer(path);
         var parser = new SyntacticAnalyzer(analyzer);
+        parser.ReadProgram();
     }
 
     //endregion

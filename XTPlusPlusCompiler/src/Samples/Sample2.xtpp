@@ -1,0 +1,26 @@
+#DECLARACAO
+n1#INTEIRO
+n2#INTEIRO
+auxiliar#INTEIRO
+
+#ALGORITMO
+$ Trocando valores entre 2 vari�veis e atribuindo valores.
+LER n1
+LER n2
+SE n1 > n2 ENTAO
+    INIB
+        ARMAZENAR n1 EM auxiliar
+        ARMAZENAR n2 EM n1
+        ARMAZENAR auxiliar EM n2
+        ARMAZENAR 2+2*2-2+2 EM auxiliar
+    FIMB
+SE n2 > n1 ENTAO
+    INIB
+        ARMAZENAR n2 EM auxiliar
+        ARMAZENAR n1 EM n2
+        ARMAZENAR auxiliar EM n1
+        ARMAZENAR 2+2*2-2+2 EM auxiliar
+    FIMB
+ESCREVER n1
+ESCREVER n2
+ESCREVER auxiliar

@@ -8,7 +8,8 @@ public enum TokenTypes
     FIMB,
     LER,
     ESC,
-    SE, 
+    SE,
+    SENAO,
     ENT,
     ENQ,
     ARM,
@@ -16,8 +17,6 @@ public enum TokenTypes
     DECI,
     EM,
     FIM,
-    OR,
-    OB,
     Ap,
     Fp,
     DL,
@@ -28,5 +27,14 @@ public enum TokenTypes
     OASo,
     OASub,
     OAMult,
-    OADiv
+    OADiv,
+    OR_E,
+    OR_OU,
+
+    OR_DIFERENTE,
+    OR_IGUAL,
+    OR_MAIOR,
+    OR_MAIOR_IGUAL,
+    OR_MENOR,
+    OR_MENOR_IGUAL
 }
